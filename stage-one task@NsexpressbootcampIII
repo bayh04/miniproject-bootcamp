@@ -1,0 +1,66 @@
+void main(){
+customersRequest();
+SelectingADeliveryMan();
+deliveryConfirmation();
+
+
+}
+class Workers{
+String workerName;
+double hisLocation;
+
+Worker(this.wokerName, this.distanceFrmHq);
+
+void customersRequest(){
+print("Place your order:");
+String foodType = stdin.readLineSync();
+
+print("Food quantity in words:");
+String foodQty = stdin.readLineSync();
+
+print("Location distance (Km) from our office:");
+String foodType = stdin.readLineSync();
+double customerLocation = double.parse(customerDistance);
+
+print("Type your name:");
+String customerAddress = stdin.readLineSync();
+
+print("Type your address:");
+String customerAddress = stdin.readLineSync();
+
+print("Order successfully placed.");
+
+}
+
+void SelectingADeliveryMan(){
+print("How far (Km) are you from the office?:");
+String deliveryManLocation = stdin.readLineSync();
+double hisLocation = double.parse(deliveryManLocation);
+
+print("Please state your work name sir:");
+String workName = stdin.readLineSync();
+
+num locationDiff = customerLocation - hisLocation;
+
+if(locationDiff<=25.00){
+print("Mr ${workerName}, you are requested to make a delivery to a customer by the 
+name ${customerName} at ${customerAddress}.");
+}
+
+else{
+print("Wait for the next available order.");
+}
+}
+void deliveryConfirmation(){
+print("How far (Km) are you from the office?:");
+String deliveryManLocation = stdin.readLineSync();
+double hisLocation = double.parse(deliveryManLocation);
+
+num locationDiff = customerLocation - hisLocation;
+while(locationDiff>0.00){
+print("Please, deliver to our customer in time!")
+}
+print("Delivered! we thank Mr ${workerName} for the job welldone.")
+
+}
+}

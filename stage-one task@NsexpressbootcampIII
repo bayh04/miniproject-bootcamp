@@ -1,5 +1,7 @@
+import "dart:io";
+
 void main(){
-Workers worker = Workers();
+  Workers worker = Workers();
 worker.customersRequest();
 worker.selectingADeliveryMan();
 worker.deliveryConfirmation();
@@ -17,21 +19,21 @@ worker(String workerName, double hisLocation){
 
 void customersRequest(){
 print("Place your order:");
-String foodType = stdin.readLineSync();
+String? foodType = stdin.readLineSync();
 
 print("Food quantity in words:");
-String foodQty = stdin.readLineSync();
-double foodMeasure = double.parse(foodQty);
+String? foodQty = stdin.readLineSync();
+double foodMeasure = double.parse(foodQty??0.00);
 
 print("Location distance (Km) from our office:");
-String customerDistance = stdin.readLineSync();
-double customerLocation = double.parse(customerDistance);
+String? customerDistance = stdin.readLineSync();
+double customerLocation = double.parse(customerDistance??0.00);
 
 print("Type your name:");
-String customerName= stdin.readLineSync();
+String? customerName= stdin.readLineSync();
 
 print("Type your address:");
-String customerAddress = stdin.readLineSync();
+String? customerAddress = stdin.readLineSync();
 
 print("Order successfully placed.");
 
@@ -39,17 +41,16 @@ print("Order successfully placed.");
 
 void selectingADeliveryMan(){
 print("How far (Km) are you from the office?:");
-String deliveryManLocation = stdin.readLineSync();
-double hisLocation = double.parse(deliveryManLocation);
+String? deliveryManLocation = stdin.readLineSync();
+double hisLocation = double.parse(deliveryManLocation??0.00);
 
 print("Please state your work name sir:");
-String workName = stdin.readLineSync();
+String? workName = stdin.readLineSync();
 
 num locationDiff = customerLocation - hisLocation;
 
 if(locationDiff<=25.00){
-print("Mr ${workerName}, you are requested to make a delivery to a customer by the 
-name ${customerName} at ${customerAddress}.");
+print("Mr ${workerName}, you are requested to make a delivery to a customer by the name ${customerName} at ${customerAddress}.");
 }
 
 else{
@@ -58,16 +59,16 @@ print("Wait for the next available order.");
 }
 void deliveryConfirmation(){
 print("How far (Km) are you from the office?:");
-String deliveryManLocation = stdin.readLineSync();
+String? deliveryManLocation = stdin.readLineSync();
 double hisLocation = double.parse(deliveryManLocation);
 
 num locationDiff = customerLocation - hisLocation;
 while(locationDiff>0.00){
 print("Please, deliver to our customer in time!");
-  
-  
+
+
 }
 print("Delivered! we thank Mr ${workerName} for the job welldone.")
 
 }
-
+}

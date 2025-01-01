@@ -1,15 +1,19 @@
 void main(){
-customersRequest();
-SelectingADeliveryMan();
-deliveryConfirmation();
+Workers worker = Workers();
+worker.customersRequest();
+worker.selectingADeliveryMan();
+worker.deliveryConfirmation();
 
 
 }
 class Workers{
-String workerName;
-double hisLocation;
+String? workerName;
+double? hisLocation;
 
-Worker(this.wokerName, this.distanceFrmHq);
+worker(String workerName, double hisLocation){
+  this.workerName = workerName;
+  this.hisLocation = hisLocation;
+}
 
 void customersRequest(){
 print("Place your order:");
@@ -17,13 +21,14 @@ String foodType = stdin.readLineSync();
 
 print("Food quantity in words:");
 String foodQty = stdin.readLineSync();
+double foodMeasure = double.parse(foodQty);
 
 print("Location distance (Km) from our office:");
-String foodType = stdin.readLineSync();
+String customerDistance = stdin.readLineSync();
 double customerLocation = double.parse(customerDistance);
 
 print("Type your name:");
-String customerAddress = stdin.readLineSync();
+String customerName= stdin.readLineSync();
 
 print("Type your address:");
 String customerAddress = stdin.readLineSync();
@@ -32,7 +37,7 @@ print("Order successfully placed.");
 
 }
 
-void SelectingADeliveryMan(){
+void selectingADeliveryMan(){
 print("How far (Km) are you from the office?:");
 String deliveryManLocation = stdin.readLineSync();
 double hisLocation = double.parse(deliveryManLocation);
@@ -58,9 +63,11 @@ double hisLocation = double.parse(deliveryManLocation);
 
 num locationDiff = customerLocation - hisLocation;
 while(locationDiff>0.00){
-print("Please, deliver to our customer in time!")
+print("Please, deliver to our customer in time!");
+  
+  
 }
 print("Delivered! we thank Mr ${workerName} for the job welldone.")
 
 }
-}
+
